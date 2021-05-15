@@ -2,9 +2,14 @@ package com.niu.demo.controller;
 
 import com.niu.demo.entity.Article;
 import com.niu.demo.entity.ArticleType;
+import com.niu.demo.entity.Comment;
+import com.niu.demo.entity.User;
 import com.niu.demo.service.ArticleService;
 import com.niu.demo.service.ArticleTypeService;
+import com.niu.demo.service.CommentService;
+import com.niu.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
