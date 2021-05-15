@@ -11,4 +11,6 @@ public interface ArticleTypeRepository extends JpaRepository<ArticleType, Intege
     List<ArticleType> findByUser(User user);
 
     ArticleType findByArticleTypeNameAndUser(String articleTypeName, User user);
+
+    ArticleType findByArticleTypeId(int articleTypeId);
 }

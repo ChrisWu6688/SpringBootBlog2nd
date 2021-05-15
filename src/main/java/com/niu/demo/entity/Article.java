@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-public class Article {
+public class Article  {
     @Id
     @GeneratedValue
     private int articleId;

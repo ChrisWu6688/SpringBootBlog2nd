@@ -22,9 +22,7 @@ public class UserService implements UserDetailsService {
         return userRepository.findAll();
     }
 
-    public List<User> findByUserName(String userName) {
-        return userRepository.findByUserNameContaining(userName);
-    }
+
 
     public User add(User user) {
         PasswordEncoder passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
@@ -47,7 +45,7 @@ public class UserService implements UserDetailsService {
 
     public User modify(int userId, String userName, String password, String name, String gender, String birthday,
                        String phone, String email, String wechat, String description) {
-        User user = userRepository.findById(userId).get();
+        User user = userRepository.findByUserId(userId);
         user.setUserName(userName);
         user.setPassword(password);
         user.setName(name);

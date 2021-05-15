@@ -97,4 +97,15 @@ public class ArticleController {
         model.addAttribute(articleList);
         return "searchArticle";
     }
+
+    @GetMapping("/getArticlesByUser")
+    public String getArticlesByUser(Model model, @RequestParam("userId") int userId) {
+        List<Article> articleList = articleService.findByUserId(userId);
+        model.addAttribute(articleList);
+        return "/getArticlesByUser";
+    }
+
+
+
+
 }

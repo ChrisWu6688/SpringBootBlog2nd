@@ -21,8 +21,7 @@ public class ArticleService {
 
     public Article add(Article article) {
         article.setUser((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
-//        article.setArticleType(article.getArticleType());
-        System.out.println(article.getArticleType().getArticleTypeName());
+
         return articleRepository.save(article);
     }
 
@@ -35,11 +34,11 @@ public class ArticleService {
     }
 
     public Article findByArticleId(int articleId) {
-        return articleRepository.findById(articleId).get();
+        return articleRepository.findByArticleId(articleId);
     }
 
     public Article modify(int articleId, String articleName, String articleTypeName, String articleModifyDate, String articleContent) {
-        Article article = articleRepository.findById(articleId).get();
+        Article article = articleRepository.findByArticleId(articleId);
         User user = ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
         ArticleType articleType = articleTypeRepository.findByArticleTypeNameAndUser(articleTypeName, user);
         article.setArticleName(articleName);
